@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imti.exam.dao.EmployeeDao">
+	<!-- 
+		public List<Employee> retrieveAllEmployees();
+		public Employee retrieveEmployeeWithId(Integer empId);
+		public boolean createEmployee(Employee employee);
+		public boolean deleteEmployeeWithId(Integer empId);
+		public boolean updateEmployeeWithModel(Employee employee);
+	-->
+
+	<select id="retrieveAllEmployees" resultType="com.imti.exam.bean.Employee">
+		select * from employee
+	</select>
+	
+	<select id="retrieveEmployeeWithId" resultType="com.imti.exam.bean.Employee">
+		select * from employee where emp_id = #{empId}
+	</select>
+	
+	<insert id="createEmployee">
+		insert into employee(emp_name,emp_age,emp_email,emp_gender)
+		values(#{empName},#{empAge},#{empEmail},#{empGender})
+	</insert>
+	
+	<delete id="deleteEmployeeWithId">
+		delete from employee where emp_id = #{empId}
+	</delete>
+	
+	<update id="updateEmployeeWithModel">
+		update employee set 
+			emp_name=#{empName},
+			emp_age=#{empAge},
+			emp_email=#{empEmail},
+			emp_gender=#{empGender}
+		where
+			emp_id=#{empId}
+	</update>
+</mapper>
