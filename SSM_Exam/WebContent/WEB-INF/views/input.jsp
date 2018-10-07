@@ -14,6 +14,7 @@
 <body>
 	<h3 align="center">操作信息页面</h3>
 	
+	<!-- form标签默认的modelAttribute属性默认的javabbBean的名字是command属性名 -->	
 	<form:form action="${pageContext.request.contextPath }/UI/input" method="post" modelAttribute="employee">
 		<table align="center" cellpadding="5" cellspacing="0">
 			<c:if test="${empId != null}">
